@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const nodemailer = require('nodemailer')
 const express = require('express')
 const app = express();
@@ -17,8 +19,8 @@ app.post('/contact', (req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'av@austinvershave.dev',
-            pass: 'JasperEddy20!'
+            user: process.env.EMAIL,
+            pass: process.env.PASS
         }
     });
     
