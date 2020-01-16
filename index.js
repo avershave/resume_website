@@ -18,7 +18,7 @@ app.post('/contact', (req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
             user: 'av@austinvershave.dev',
-            pass: 'JasperEddy20!'
+            pass: ''
         }
     });
     
