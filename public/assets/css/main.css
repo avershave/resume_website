@@ -231,6 +231,7 @@ input, select, textarea {
 		h1 {
 			font-size: 1.75rem;
 			line-height: 1.4;
+			padding-left: 10px;
 		}
 
 		h2 {
@@ -1275,8 +1276,6 @@ input, select, textarea {
 				content: '';
 				display: block;
 				position: absolute;
-				width: 1px;
-				background: #ffffff;
 			}
 
 		#header > :first-child {
@@ -1455,20 +1454,8 @@ input, select, textarea {
 				}
 
 					#header nav ul li {
-						border-left: 0;
 						border-top: solid 1px #ffffff;
 					}
-
-						#header nav ul li:first-child {
-							border-top: 0;
-						}
-
-						#header nav ul li a {
-							height: 3rem;
-							line-height: 3rem;
-							min-width: 0;
-							width: 100%;
-						}
 
 				#header nav.use-middle:after {
 					display: none;
