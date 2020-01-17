@@ -57,7 +57,7 @@ app.post('/contact', (req, res) => {
         if(error){
             console.log(error);
         } else {
-            res.render('/');
+            res.redirect('/');
         }
     });
 });
