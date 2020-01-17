@@ -1,14 +1,19 @@
 require('dotenv').config();
-
 const nodemailer = require('nodemailer')
 const express = require('express')
 const app = express();
+
+app.set('view engine', 'ejs');
 const path = require('path');
 
 const PORT = process.env.PORT || 5000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
 
 app.post('/contact', (req, res) => {
     console.log(req.body);
@@ -33,6 +38,10 @@ app.post('/contact', (req, res) => {
         text: `From ${req.body.name}`, // plain text body
         html: `<b>From ${req.body.name} | Email ${req.body.email} | Phone Number ${req.body.phonenumber}</b>
                <p>${req.body.message}` 
+    }, (error, info) => {
+        if(error){
+            console.log(error);
+        }
     });
 
     let thankYou = transporter.sendMail({
@@ -44,8 +53,13 @@ app.post('/contact', (req, res) => {
                <p> Thank you for reaching out to me. I'll try to respond as soon as I can! In the meantime, please add me on <a href="https://www.linkedin.com/in/austinvershave/">LinkedIn</a>.</p>
                <p>Have a great day!</p>
                <p>Austin Vershave</p>` 
+    }, (error, info) => {
+        if(error){
+            console.log(error);
+        } else {
+            res.render('/');
+        }
     });
-    res.status(204).send();
 });
 
 
