@@ -55,9 +55,9 @@ app.post('/contact', (req, res) => {
                <p>Austin Vershave</p>` 
     }, (error, info) => {
         if(error){
-            console.log(error);
+            res.redirect('/#failed');
         } else {
-            res.redirect('/');
+            res.redirect('/#success');
         }
     });
 });
