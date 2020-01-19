@@ -301,6 +301,11 @@ input, select, textarea {
 		text-align: right;
 	}
 
+/* QR Code */
+	#qrcode {
+		max-width: 20%;
+	}
+
 /* ScrollBox */
 	#scrollbox {
 		overflow: auto;
